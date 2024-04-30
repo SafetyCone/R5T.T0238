@@ -5,12 +5,36 @@ Targets the latest .NET target framework to allow types to depend on *any* type 
 
 This means the library dependencies (both project and package) of this library will be a snarled mess... but that's ok! This is the types library where that is allowed.
 
-It also means types currently in this library might move in the future! The move might entail movement in one or both of:
+Types should not move at any point in the future! Movement might entail movement in one or both of:
 
 * Project reference location
 * Namespace location
 
-That is the tradeoff of putting a type in this library: the future cost of moving the type is exchanged for the immediate benefit of just being able to slap a type into a commonly accessible location.
+Instead, types should be obsoleted. (Marked with the [Obsolete] attribute and a note pointing to the new location of the type. Additionally, include a note in a \<!--...--> XML documentation comment comment of the new type listing prior locations. And finally, put the [Obsolete] attribute right next to the type name since that is the most important location).
+
+This means there will be lots and lots of types in this library, with many being obsolete... but that's ok! This is the types library where that is allowed.
+
+Additionally, there might be change in the concept of the type (another type of "movement").
+
+* Concept (same name, different concept)
+
+After gaining experience by actually using a type, you might find that that the conceptual boundaries of the type implied by the type name are wrong. In this case, want to keep using the same project reference location and name for the type, but you want the type to be different.
+Here still, you should obsolete the type, create a new type in a sub-namespace (generally just using an incremented N### suffix), and then leave a note in the obsolete attribute pointing to the new type.
+It's a best practice to also leave a note in the \<!--...--> XML documentation comment comment of the new type to list the priors.
+It's a good idea to keep all the namespaced types in the same code file, with most recent namespace increment at the top. However, for side-by-side on-screen comparison purposes, types can be put in their own "N###"-suffixed code file.
+If you get fed-up with all the numeric versions, you can always create a new types library for the type! (In fact, if a type is important enough to move or change multiple times, that is a good sign the type is important enough for its own types library.)
+
+Aside: As a question, when is it ok to move-and-delete a type or method? When the type is registered with the R5T.L0101 official selections. This will point to its permanent home. At that point, all priors can be deleted too (although it's good to check in changes before deletion).
+
+
+That is the tradeoff of putting a type in this library: the future costs of moving the type and searching through lots of irrelevant or obsolete entries is exchanged for the immediate benefit of just being able to slap a type into a commonly accessible location.
+
+
+
+## Allowed instance types
+
+All data, utility, and type instance types are allowed.
+The functionality instance type is also allowed. (To avoid having to create a -T000 types sub-library to be reference by a -F000 functionality sub-library, which would be referenced by this library.)
 
 
 ## Allowed Dependencies
