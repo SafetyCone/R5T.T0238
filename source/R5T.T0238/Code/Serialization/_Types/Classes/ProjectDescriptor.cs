@@ -30,11 +30,5 @@ namespace R5T.T0238.Serialization
         public bool IsPrivate { get; set; }
 
         public string[] ProjectReferences { get; set; }
-
-
-        public ProjectDescriptor()
-        {
-
-        }
     }
 }
