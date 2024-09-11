@@ -8,11 +8,10 @@
   <PropertyGroup>
     <Version>1.0.0</Version>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
-    <NoWarn>1591</NoWarn>
     <Authors>DCoats</Authors>
     <Company>Rivet</Company>
     <Copyright>Copyright (c) Rivet 2024</Copyright>
-    <Description>--- ADD DESCRIPTION ---</Description>
+    <Description>Catch-all for types (targets the latest target framework and allows any and all dependencies).</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/SafetyCone/R5T.T0238.git</RepositoryUrl>

@@ -3,6 +3,7 @@
 using R5T.T0142;
 
 
+/// <see cref="R5T.T0238.Documentation"/>
 namespace R5T.T0238
 {
     /// <summary>
@@ -38,6 +39,8 @@ namespace R5T.T0238
         /// </summary>
         public ProjectDescriptor()
         {
+
+            ///
             // Do nothing.
         }
 
